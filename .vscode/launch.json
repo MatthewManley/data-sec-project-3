@@ -5,11 +5,29 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: KeyGen",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/main.py",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "args": [
+                "keygen",
+                "./data/skaes.txt"
+            ]
+        },
+        {
+            "name": "Python: Enc",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "enc",
+                "./data/skaes.txt",
+                "./data/index.txt",
+                "./data/files",
+                "./data/ciphertextfiles"
+            ]
         }
     ]
 }

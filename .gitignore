@@ -1,3 +1,5 @@
 env/
 proj2/
 .vscode/.ropeproject/objectdb
+__pycache__/
+data/
