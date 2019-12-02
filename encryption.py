@@ -89,3 +89,6 @@ class InvertedIndex:
     # Returns a list of files that the word can be found in
     def search(self, token) -> list:
         return self.data[token]
+
+    def __str__(self):
+        return json.dumps(self.data, indent=2)
