@@ -1,4 +1,5 @@
 import hashlib
+import json
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.Util.Padding import pad, unpad
@@ -50,9 +51,20 @@ def hex_to_bytes(data: str, byte_order = 'big') -> bytes:
     return bytearray.fromhex(data)
 
 class InvertedIndex:
+    # Dictionary mapping tokens to lists of values
     data = {}
 
-    def addEntry(key, value):
-        pass
+    def __init__(self, dataJson={}):
+        self.data = json.load(dataJson)
 
-    
+    def serialize(self):
+        return json.dumps(self.data)
+
+    def addEntry(self, token, value):
+        if (token in self.data):
+            self.data[token].append(value)
+        else:
+            self.data[token] = [value]
+
+    def search(self, token):
+        return self.data[token]
